@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Magic 8-Ball</title>
+</head>
+
+<body>
+    <h1> Magic 8-Ball</h1>
+    <p>Avaa selainkonsoli tai seuraa ohjeita!</p>
+
+    <script>
+        // Käyttäjältä kysytään kyllä-tai-ei -kysymys
+        const question = prompt("Kysy kyllä-tai-ei -kysymys Magic 8-Ballilta:");
+
+        // Mahdolliset vastaukset
+        const answers = [
+            "Kyllä, aivan varmasti!",
+            "Ei missään nimessä.",
+            "Ehkä tulevaisuudessa.",
+            "Kysy myöhemmin uudelleen.",
+            "Näyttää hyvältä juuri nyt!",
+            "Todennäköisesti ei.",
+            "On täysin mahdollista.",
+            "Täysin epäselvää... vielä."
+        ];
+
+        // Arvotaan satunnainen vastaus
+        const randomIndex = Math.floor(Math.random() * answers.length);
+        const randomAnswer = answers[randomIndex];
+
+        // Näytetään vastaus käyttäjälle
+        if (question) {
+            alert("Kysymyksesi: " + question + "\nMagic 8-Ball vastaa: " + randomAnswer);
+            console.log(" Kysymys:", question);
+            console.log(" Vastaus:", randomAnswer);
+        } else {
+            alert("Et kysynyt mitään. Magic 8-Ball on hiljaa...");
+        }
+    </script>
+</body>
+
+</html>
