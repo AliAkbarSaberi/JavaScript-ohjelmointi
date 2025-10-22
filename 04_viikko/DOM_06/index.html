@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lomakkeen validointi</title>
+</head>
+
+<body>
+    <h2>Yhteydenottolomake</h2>
+
+    <form id="contactForm">
+        <label for="name">Nimi:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Sähköposti:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <button type="submit">Lähetä</button>
+    </form>
+
+    <p id="error-message" style="color: red;"></p>
+
+    <script>
+        // Haetaan lomake ja virheviestin elementti
+        const form = document.getElementById("contactForm");
+        const errorMessage = document.getElementById("error-message");
+
+        // Lisätään tapahtumankuuntelija lomakkeen lähetykselle
+        form.addEventListener("submit", function (event) {
+            // Haetaan syötteet
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+
+            // Tarkistetaan, onko kenttiä tyhjänä
+            if (name === "" || email === "") {
+                event.preventDefault(); // Estetään lomakkeen lähetys
+                errorMessage.textContent = "Täytä kaikki kentät ennen lähettämistä!";
+            } else {
+                errorMessage.textContent = ""; // Tyhjennetään virheviesti, jos kaikki kunnossa
+                alert("Lomake lähetetty onnistuneesti!"); // (valinnainen)
+            }
+        });
+    </script>
+</body>
+
+</html>
