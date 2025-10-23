@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScriptin kirjoitussäännöt</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.7;
+            background: #f6f7fb;
+            color: #222;
+            margin: 0;
+            padding: 40px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2a2d7c;
+        }
+
+        h1 {
+            border-bottom: 3px solid #2a2d7c;
+            padding-bottom: 8px;
+        }
+
+        code,
+        pre {
+            background: #eef0f7;
+            padding: 3px 6px;
+            border-radius: 6px;
+            font-family: "Fira Code", Consolas, monospace;
+            color: #0b234a;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        section {
+            background: #fff;
+            padding: 20px 30px;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        ul {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🧠 JavaScriptin kirjoitussäännöt</h1>
+
+    <p>
+        Puhdas, ylläpidettävä ja virheetön JavaScript-koodi on tärkeää jokaiselle kehittäjälle.
+        Näiden sääntöjen noudattaminen parantaa luettavuutta, vähentää bugeja ja tekee koodistasi helpommin
+        ymmärrettävää ja ylläpidettävää ajan myötä.
+    </p>
+
+    <section>
+        <h2>1. Käytä "use strict"</h2>
+        <p>
+            Aloita JavaScript-tiedostosi tai -funktiosi rivillä <code>"use strict"</code>.
+            Tämä pakottaa tiukemman virheenkäsittelyn ja auttaa havaitsemaan yleisiä virheitä aikaisessa vaiheessa.
+        </p>
+        <ul>
+            <li>Havaitsee hiljaiset virheet.</li>
+            <li>Parantaa suorituskykyä.</li>
+            <li>Estää tulevaisuudessa ongelmallisia ominaisuuksia.</li>
+        </ul>
+        <pre><code>"use strict";
+function esimerkkiFunktio() {
+  // Tiukka tila on käytössä tässä
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>2. Käytä johdonmukaista muotoilua</h2>
+        <ul>
+            <li><strong>Sisennys:</strong> Käytä 2 tai 4 välilyöntiä johdonmukaisesti.</li>
+            <li><strong>Puolipisteet:</strong> Lisää puolipiste lauseiden loppuun.</li>
+            <li><strong>Aaltosulkeet:</strong> Käytä aina aaltosulkeita, myös yksirivisissä lohkoissa.</li>
+        </ul>
+        <pre><code>if (isActive) {
+  console.log("Aktiivinen");
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>3. Määritä muuttujat oikein</h2>
+        <ul>
+            <li><code>let</code> muuttuville arvoille.</li>
+            <li><code>const</code> pysyville arvoille.</li>
+            <li>Vältä <code>var</code>-avainta näkyvyysongelmien vuoksi.</li>
+        </ul>
+        <pre><code>const MAKSIMI_KAYTTAJAT = 100;
+let nykyinenKayttaja = "Aliisa";</code></pre>
+    </section>
+
+    <section>
+        <h2>4. Nimeämiskäytännöt</h2>
+        <ul>
+            <li>Muuttujat ja funktiot: <strong>camelCase</strong> → <code>getUserInfo()</code></li>
+            <li>Luokat: <strong>PascalCase</strong> → <code>UserProfile</code></li>
+            <li>Vakiot: <strong>UPPER_CASE</strong> → <code>MAX_VALUE</code></li>
+        </ul>
+        <pre><code>const MAX_SPEED = 120;
+function calculateDistance() {}
+class Vehicle {}</code></pre>
+    </section>
+
+    <section>
+        <h2>5. Hyvät käytännöt funktioille</h2>
+        <ul>
+            <li>Yksi funktio tekee vain yhtä asiaa.</li>
+            <li>Rajoita parametreja — käytä olioita tarvittaessa.</li>
+            <li>Käytä nuolifunktioita <code>=></code> kun ne tekevät koodista selkeämpää.</li>
+        </ul>
+        <pre><code>const getUserInfo = (user) => {
+  return `${user.name} is ${user.age} years old.`;
+};</code></pre>
+    </section>
+
+    <section>
+        <h2>6. Kommentointi ja dokumentointi</h2>
+        <p>
+            Kirjoita vain merkityksellisiä kommentteja ja käytä <strong>JSDoc</strong>-tyyliä isommissa projekteissa.
+        </p>
+        <pre><code>/**
+ * Laskee suorakulmion pinta-alan.
+ * @param {number} width
+ * @param {number} height
+ * @returns {number} Pinta-ala
+ */
+function calculateArea(width, height) {
+  return width * height;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>7. Virheenkäsittely</h2>
+        <p>Käytä <code>try...catch</code> -rakennetta virheiden hallintaan.</p>
+        <pre><code>try {
+  let result = riskyOperation();
+} catch (error) {
+  console.error("Tapahtui virhe:", error.message);
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>8. Käytä ESLintiä</h2>
+        <ul>
+            <li>Automaattinen koodin tarkistus tyylivirheille ja bugeille.</li>
+            <li>Integroi se editoriin kuten VSCode.</li>
+            <li>Huomio: ESLint ja Prettier voivat vaatia yhteensovittamista.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>9. Vältä "taikalukuja" ja -merkkijonoja</h2>
+        <p>
+            Käytä kuvaavia vakioita sen sijaan, että kirjoitat arvoja suoraan koodiin.
+        </p>
+        <pre><code>// Huono
+let discount = total * 0.2;
+
+// Hyvä
+const DISCOUNT_RATE = 0.2;
+let discount = total * DISCOUNT_RATE;</code></pre>
+    </section>
+
+    <section>
+        <h2>10. Refaktoroi säännöllisesti ja jatka oppimista</h2>
+        <p>
+            Refaktoroi eli paranna koodia säännöllisesti muuttamatta sen toimintaa.
+            Pysy ajan tasalla JavaScriptin uusista ominaisuuksista.
+        </p>
+        <pre><code>// Ennen
+function add(a, b) {
+  return a + b;
+}
+
+// Jälkeen
+const add = (a, b) => a + b;</code></pre>
+    </section>
+
+    <h2>🎯 Yhteenveto</h2>
+    <p>
+        Näiden parhaiden käytäntöjen noudattaminen auttaa sinua kirjoittamaan puhdasta, helposti ylläpidettävää
+        JavaScript-koodia —
+        vähemmän virheitä, parempi suorituskyky ja selkeämpi projekti!
+    </p>
+</body>
+
+</html>
